@@ -1,16 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2; // On n'oublie pas le `.v2` à la fin
-require('dotenv').config();
 const app = express();
 app.use(express.json());
 
-mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://localhost:27017/andromeda-vinted");
+require('dotenv').config();
 
-app.listen(process.env.PORT, () => {
-  console.log("Server started");
-});
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.MONGODB_URI);
 
 cloudinary.config({
   cloud_name: process.env.cloud_name,
