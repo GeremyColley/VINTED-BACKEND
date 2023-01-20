@@ -21,6 +21,10 @@ const offerRoutes = require("./routes/offer");
 app.use(userRoutes);
 app.use(offerRoutes);
 
+app.get("/start" , (req,res)=>{
+  res.status(200).json({ message: "Hello I'm running...." });
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "This routes doesn't exist" });
 });
