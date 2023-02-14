@@ -149,8 +149,7 @@ router.get("/offers", async (req, res) => {
   }
 });
 
-
-// Pour tester executer une requete en GET depuis http://localhost:4000/offers/{mettre l'id de l'article offer.owner.ref}
+// Pour tester executer une requete en GET depuis http://localhost:4000/offers/'{mettre l'id de l'article offer.owner.ref}'
 router.get("/offer/:id", async (req, res) => {
   try {
     console.log(req.params);
