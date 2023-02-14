@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cloudinary = require("cloudinary").v2; // On n'oublie pas le `.v2` à la fin
+const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
 const app = express();
 app.use(express.json());
@@ -23,6 +23,10 @@ const offerRoutes = require("./routes/offer");
 app.use(userRoutes);
 app.use(offerRoutes);
 
+app.get("/" , (req,res)=>{
+  res.status(200).json({ message: "Hello I'm running...." });
+});
+
 app.get("/start" , (req,res)=>{
   res.status(200).json({ message: "Hello I'm running...." });
 });
@@ -31,6 +35,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ message: "This routes doesn't exist" });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT | 4000, () => {
   console.log("Server started");
 });
