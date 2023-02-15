@@ -22,10 +22,6 @@ const offerRoutes = require("./routes/offer");
 app.use(userRoutes);
 app.use(offerRoutes);
 
-app.get("/" , (req,res)=>{
-  res.status(200).json({ message: "Hello I'm running...." });
-});
-
 app.get("/start" , (req,res)=>{
   res.status(200).json({ message: "Hello I'm running...." });
 });
