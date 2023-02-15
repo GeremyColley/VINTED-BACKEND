@@ -54,11 +54,12 @@ router.post("/offer/publish", isAuthenticated, fileUpload(), async (req, res) =>
       const result = await cloudinary.uploader.upload(convertToBase64(req.files.picture));
       newOffer.product_image = result;
       //console.log("Publish Result " + result);
+      //throw "myException";
       await newOffer.save();
       res.json(newOffer);
 
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(400).json({ message: error.message});
     }
   }
 );

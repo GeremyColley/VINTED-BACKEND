@@ -9,7 +9,7 @@ const User = require("../models/User");  // Importation du modèle USER
 // Pour tester : executer une requete en post depuis http://localhost:4000/user/signup
 // Exemple
 // {  
-//  "username": "aurore",
+//  "username": "romain",
 //  "email": "romain.colley@hotmail.fr",
 //  "newsletter": false,
 //  "password": "azerty"
@@ -17,11 +17,10 @@ const User = require("../models/User");  // Importation du modèle USER
 router.post("/user/signup", async (req, res) => {
   try {
     console.log(req.body);
-
     const { username, email, password, newsletter } = req.body;   // Destructuring
-
+  
     if (!username || !email || !password || typeof newsletter !== "boolean") { 
-      return res.status(400).json({ message: "Missing parameter" });
+      return res.status(400).json({ message: "Missing parameter"});
     }
     
     const emailAlreadyUsed = await User.findOne({ email }); // Si l'email est déjà utilisé par quelqu'un d'autre, on renvoie une erreur
