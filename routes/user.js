@@ -11,7 +11,7 @@ const User = require("../models/User");  // Importation du modèle USER
 // {  
 //  "username": "aurore",
 //  "email": "romain.colley@hotmail.fr",
-//  "newlettes": false,
+//  "newsletter": false,
 //  "password": "azerty"
 // }
 router.post("/user/signup", async (req, res) => {
@@ -20,7 +20,7 @@ router.post("/user/signup", async (req, res) => {
 
     const { username, email, password, newsletter } = req.body;   // Destructuring
 
-    if (!username || !email || !password || typeof newsletter !== "boolean") {   // Remarque : à voir pourquoi le test fonctionne "typeof newsletter !== boolean" aléatoirement ??
+    if (!username || !email || !password || typeof newsletter !== "boolean") { 
       return res.status(400).json({ message: "Missing parameter" });
     }
     
